@@ -134,5 +134,23 @@
         slider.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
 </script>
+    <script>
+    const BIN_ID = "YOUR_BIN_ID"; // GANTI DENGAN ID YANG SAMA
+
+    async function loadData() {
+        const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`);
+        const data = await res.json();
+        
+        // Update Skor
+        document.querySelector('.fwc-score').innerText = data.record.skor;
+        
+        // Update Berita (Kita ambil teks berita dari admin dan masukkan ke bagian berita)
+        document.querySelector('.news-item h3').innerText = "Update Terkini";
+        document.querySelector('.news-item p').innerText = data.record.berita;
+    }
+    
+    loadData();
+    setInterval(loadData, 5000); // Otomatis refresh data tiap 5 detik
+</script>
 </body>
 </html>
