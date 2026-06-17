@@ -42,5 +42,30 @@
             alert('Data berhasil diupdate!');
         }
     </script>
+    <div class="form-group">
+    <label>Nama Tim A</label>
+    <input type="text" id="timA" placeholder="Contoh: Portugal">
+</div>
+<div class="form-group">
+    <label>Nama Tim B</label>
+    <input type="text" id="timB" placeholder="Contoh: RD Kongo">
+</div>
+<div class="form-group">
+    <label>Skor (Contoh: 3 : 1)</label>
+    <input type="text" id="skor" placeholder="3 : 1">
+</div>
+<button onclick="saveData()">Update Pertandingan</button>
+
+<script>
+    async function saveData() {
+        const data = {
+            timA: document.getElementById('timA').value,
+            timB: document.getElementById('timB').value,
+            skor: document.getElementById('skor').value
+        };
+        // ... (sisipkan kode fetch PUT Anda di sini seperti sebelumnya)
+        alert('Data pertandingan berhasil diupdate!');
+    }
+</script>
 </body>
 </html>
