@@ -152,5 +152,30 @@
     loadData();
     setInterval(loadData, 5000); // Otomatis refresh data tiap 5 detik
 </script>
+    <div class="fwc-match">
+    <div class="fwc-team">
+        <div id="nama-tim-A">Portugal</div>
+    </div>
+    <div class="fwc-score-box">
+        <div class="fwc-score" id="skor-live">0 : 0</div>
+    </div>
+    <div class="fwc-team">
+        <div id="nama-tim-B">RD Kongo</div>
+    </div>
+</div>
+
+<script>
+    async function loadData() {
+        const res = await fetch(`https://api.jsonbin.io/v3/b/6a323756da38895dfece36ae/latest`);
+        const data = await res.json();
+        
+        // Update Nama & Skor
+        document.getElementById('nama-tim-A').innerText = data.record.timA;
+        document.getElementById('nama-tim-B').innerText = data.record.timB;
+        document.getElementById('skor-live').innerText = data.record.skor;
+    }
+    loadData();
+    setInterval(loadData, 5000);
+</script>
 </body>
 </html>
